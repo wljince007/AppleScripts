@@ -1,77 +1,17 @@
-(*
-Transmission Library
-v1.0
-Dov Frankel, 2013
 
+on logit(log_string)
+	my logit_withfile(log_string, "applescript_debug.log")	
+end logit
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
-property TransmissionLib : LibLoader's loadScript("Libraries:Transmission.applescript")
+on logit_clean()
+	my logit_clean_withfile("applescript_debug.log")
+end logit_clean
 
-tell TransmissionLib to Initialize()
-tell TransmissionLib to ToggleSpeedLimit(true)
-tell TransmissionLib to Finalize()
-*)
+on logit_withfile(log_string, log_file)
+	log log_string
+	do shell script "echo `date '+%Y-%m-%d %T: '`\"" & log_string & "\" >> $HOME/Library/Logs/" & log_file
+end logit
 
--- Remember if Transmission's Speed Limit was on before the script ran
-global speedLimitWasPreviouslyOn
-
-property toggleEnabledDelay : 15
-property delayOn : true
-
-
--- Should be the first call a script that uses this library makes
-on initialize()
-	set speedLimitWasPreviouslyOn to my SpeedLimitIsOn()
-	set delayOn to true
-end initialize
-
--- Should be the last call a script that uses this library makes
-on Finalize()
-	my ToggleSpeedLimit(speedLimitWasPreviouslyOn)
-	set delayOn to true
-end Finalize
-
--- Used during testing to eliminate waiting. Turned back on in Finalize().
-on TurnDelayOff()
-	set delayOn to false
-end TurnDelayOff
-
--- Turns Speed Limit on or off, depending on the SpeedLimitOn parameter
-on ToggleSpeedLimit(SpeedLimitOn)
-	if not my TransmissionIsRunning() then return
-	
-	-- Sometimes necessary (who knows why)
-	set SpeedLimitOn to SpeedLimitOn as boolean
-	
-	tell application "Transmission" to activate
-	
-	tell application "System Events"
-		tell process "Transmission"
-			-- If the limit isn't already set to what it should be, toggle it
-			if SpeedLimitOn ≠ my SpeedLimitIsOn() then
-				click menu item "Speed Limit" of menu "Transfers" of menu bar 1
-				
-				-- If it was just toggled on, wait for it to kick in before returning
-				if SpeedLimitOn and delayOn then
-					delay toggleEnabledDelay
-				end if
-			end if
-		end tell
-	end tell
-end ToggleSpeedLimit
-
-on SpeedLimitIsOn()
-	if not my TransmissionIsRunning() then return no
-	
-	tell application "Transmission" to activate
-	
-	tell application "System Events"
-		tell process "Transmission"
-			return (value of attribute "AXMenuItemMarkChar" of menu item "Speed Limit" of menu "Transfers" of menu bar 1 is not missing value)
-		end tell
-	end tell
-end SpeedLimitIsOn
-
-on TransmissionIsRunning()
-	return application "Transmission" is running
-end TransmissionIsRunning
+on logit_clean_withfile(log_file)
+	do shell script "echo > $HOME/Library/Logs/" & log_file
+end logit_clean

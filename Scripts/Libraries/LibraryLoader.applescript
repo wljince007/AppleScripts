@@ -45,8 +45,10 @@ on loadScript(scriptRelativePath)
 		end try
 		
 		try
-			set scriptObject to run script ("script s" & return & scriptText & return & "end script " & return & "return s")
-			my logit("loadScript | scriptObject:" & scriptObject)
+			my logit("loadScript | scriptObject:" & ("script\n" & scriptText & "\nend script"))
+			set scriptObject to run script ("script\n" & scriptText & "\nend script")
+			--set scriptObject to run script scriptText
+
 		on error e number n partial result p from f to t
 			my logit("loadScript | on error:" & "Error reading library" & scriptFileToLoad & "" & e & "Please encode as Mac or UTF-8")
 			display dialog "Error reading library" & scriptFileToLoad & "" & e & "Please encode as Mac or UTF-8"
