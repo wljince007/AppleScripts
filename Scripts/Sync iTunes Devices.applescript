@@ -10,7 +10,7 @@ It uses UI scripting to accomplish the AppleTV syncing portion
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 property iTunesLib : LibLoader's loadScript("Libraries:iTunes.applescript")

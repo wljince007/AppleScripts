@@ -8,7 +8,7 @@ Takes the selected text, and begins a dovfrankel.com Tumblr post for it, opening
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property SafariLib : LibLoader's loadScript("Libraries:Safari.applescript")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 

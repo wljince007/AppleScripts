@@ -17,7 +17,7 @@ If you, like me, are way too particular about metadata (specifically Date Added,
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 
 

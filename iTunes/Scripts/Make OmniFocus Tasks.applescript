@@ -8,7 +8,7 @@ Takes a selection of tracks in iTunes, and creates to-do items in OmniFocus as r
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 property OmniFocusLib : LibLoader's loadScript("Libraries:OmniFocus.applescript")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")

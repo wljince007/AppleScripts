@@ -8,7 +8,7 @@ Logs into the Principal financial website, and gets contribution and share price
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property SafariLib : LibLoader's loadScript("Libraries:Safari.applescript")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 

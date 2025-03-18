@@ -4,11 +4,11 @@ v1.0
 Dov Frankel, 2013
 
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property OmniFocusLib : LibLoader's loadScript("Libraries:OmniFocus.applescript")
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 
 -- Creates a task in the specified Project and Context (colon-separated paths)
@@ -22,7 +22,7 @@ on CreateTask(TaskName, ProjectName, ContextName)
 			set TheContext to my ContextWithPath(ContextName)
 			
 			-- Create the new Task, assigning all properties except Project
-			set newTask to make new inbox task with properties Â
+			set newTask to make new inbox task with properties ï¿½
 				{name:TaskName, context:TheContext}
 			
 			-- Assign Project to new Task
@@ -46,7 +46,7 @@ on ProjectWithPath(ProjectPath)
 			if (class of ProjectPath is task) or (class of ProjectPath is project) then return ProjectPath
 			
 			-- Optimize for simplest case
-			if ProjectPath does not contain ":" then Â
+			if ProjectPath does not contain ":" then ï¿½
 				return project (ProjectPath as string)
 			
 			-- Split path into constituent parts
@@ -93,7 +93,7 @@ on ContextWithPath(ContextPath)
 	tell application "OmniFocus"
 		tell default document
 			-- Optimize for simplest case
-			if ContextPath does not contain ":" then Â
+			if ContextPath does not contain ":" then ï¿½
 				return context (ContextPath as string)
 			
 			-- Split path into constituent parts

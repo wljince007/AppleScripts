@@ -11,7 +11,7 @@ This script is intended to run as a Calendar Automator action every week. It get
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property TransmissionLib : LibLoader's loadScript("Libraries:Transmission.applescript")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property SafariLib : LibLoader's loadScript("Libraries:Safari.applescript")

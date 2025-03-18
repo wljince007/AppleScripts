@@ -8,7 +8,7 @@ Triggered by Hazel, it works around a limitation of Illustrator. This allows me 
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 
 -- Use when testing script

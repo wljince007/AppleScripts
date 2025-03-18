@@ -14,7 +14,7 @@ This script is best used as a Calendar item from Automator.
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
@@ -53,7 +53,7 @@ repeat with theCalendarName in theCalendarNames
 	set paragraphNum to 1
 	
 	-- Loop through each paragraph
-	repeat while paragraphNum ² paragraphCount
+	repeat while paragraphNum ï¿½ paragraphCount
 		repeat 1 times --Fake loop, to allow simulated "continue"
 			
 			-- The first line is always the event's summary (name)
@@ -68,7 +68,7 @@ repeat with theCalendarName in theCalendarNames
 			set paragraphNum to paragraphNum + 1
 			
 			-- Find any additional attributes. If there's another paragraph and it begins with a space, then it's a property of the current event
-			repeat while paragraphNum ² paragraphCount and paragraph paragraphNum of theEventList starts with " "
+			repeat while paragraphNum ï¿½ paragraphCount and paragraph paragraphNum of theEventList starts with " "
 				-- Get text of property paragraph, trimming whitespace on both ends
 				set nextParagraph to StringsLib's trim(paragraph paragraphNum of theEventList)
 				

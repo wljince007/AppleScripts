@@ -8,7 +8,7 @@ Looks through the Notes application for any notes starting with '$' and copies t
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 
 tell application "Notes"

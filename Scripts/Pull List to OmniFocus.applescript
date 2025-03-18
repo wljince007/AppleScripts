@@ -1,4 +1,4 @@
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property TransmissionLib : LibLoader's loadScript("Libraries:Transmission.applescript")
 property SafariLib : LibLoader's loadScript("Libraries:Safari.applescript")

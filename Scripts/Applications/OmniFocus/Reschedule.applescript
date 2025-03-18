@@ -9,7 +9,7 @@ Most of my to-dos with a due date fall on the same day as the start date, and th
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property DatesLib : LibLoader's loadScript("Libraries:Dates.applescript")
 
 set DEBUGGING to false

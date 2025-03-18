@@ -10,7 +10,7 @@ All of the scripts are intended to be installed in the `~/Library` directory (co
 
 Many scripts use libraries I've written for certain common functions. Those are located in the `Scripts/Libraries` directory. To load them, you'll see code like the following:
 
-    property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+    property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
     property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 
 The first line creates a reference to the library responsible for loading the other ones. That script has to be a compiled scripts (with the `.scpt` extension), whereas all other scripts are in the plaintext `.applescript` format. I've committed the `Library Loader` script in both formats, so the plain-text version can be searched and diff'ed, but the compiled version can be loaded as a property. Each library script contains a comment at the top of the file, which can be copied and pasted into a script that wishes to refer to it.

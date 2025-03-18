@@ -4,7 +4,7 @@ v1.0
 Dov Frankel, 2013
 
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 *)
 
@@ -27,7 +27,7 @@ end Pluralize
 StringsLib's Trim("     spaced text  ")
 *)
 on trim(someText)
-	set theseCharacters to Â
+	set theseCharacters to ï¿½
 		{" ", tab, ASCII character 10, return, ASCII character 0}
 	
 	--log "Trimming text: " & someText

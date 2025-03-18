@@ -10,7 +10,7 @@ It downloads them (using the curl command line tool) in two different resolution
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property TransmissionLib : LibLoader's loadScript("Libraries:Transmission.applescript")
 property FilenamesLib : LibLoader's loadScript("Libraries:Filenames.applescript")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")

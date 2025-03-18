@@ -10,7 +10,7 @@ loadScript() handler adapted from code at http://codemunki.com
 
 Copy the compiled version (.scpt) into your ~/Library/Scripts directory, and then include it in your scripts like so:
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "LibraryLoader.scpt")
 
 You can load compiled scripts (.scpt) or plain text scripts (.applescript). Make sure, though, that your .applescript files are encoded as either Mac (what AppleScript Editor uses) UTF-8 (if you use another text editor). Any scripts loaded are expected to be installed into your Scripts directory. Use the line below to reference the script:
 
@@ -21,6 +21,7 @@ property LibName : LibLoader's loadScript("Folder Name:Some Cool Script.applescr
 (*
 property LibName : LibLoader's loadScript("Folder Name:Some Cool Script.applescript")
 *)
+
 on loadScript(scriptRelativePath)
 	
 	set scriptFileToLoad to my fileAliasInScriptsFolder(scriptRelativePath) as text -- to be safe 
@@ -33,21 +34,13 @@ on loadScript(scriptRelativePath)
 			set scriptText to read alias scriptFileToLoad as text
 		on error number -1700 -- Error reading script's encoding
 			-- Finally try UTF-8
-			set scriptText to read alias scriptFileToLoad as Çclass utf8È
+			set scriptText to read alias scriptFileToLoad as class utf8
 		end try
 		
 		try
-			set scriptObject to run script ("script s" & return & Â
-				scriptText & Â
-				return & "end script " & return & "return s")
+			set scriptObject to run script ("script s" & return & scriptText & return & "end script " & return & "return s")
 		on error e number n partial result p from f to t
-			display dialog Â
-				"Error reading library 
-" & scriptFileToLoad & "
-
-" & e & "
-
-Please encode as Mac or UTF-8"
+			display dialog "Error reading library" & scriptFileToLoad & "" & e & "Please encode as Mac or UTF-8"
 			error e number n partial result p from f to t
 		end try
 	end try

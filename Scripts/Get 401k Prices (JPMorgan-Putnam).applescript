@@ -8,7 +8,7 @@ Logs onto JPMorgan's and Putnam's 401k pages using your credentials. It download
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property TransmissionLib : LibLoader's loadScript("Libraries:Transmission.applescript")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property SafariLib : LibLoader's loadScript("Libraries:Safari.applescript")
@@ -31,8 +31,8 @@ delay 5
 set putnamContribution to my Get401kContribution()
 
 set outMessage to "401k Prices
-JPMorgan SmartRetire 2050 (RBS)	Ð " & rbsPrice & "
-Target Date 2050 Fund (JPM)		Ð " & jpmPrice & "
+JPMorgan SmartRetire 2050 (RBS)	ï¿½ " & rbsPrice & "
+Target Date 2050 Fund (JPM)		ï¿½ " & jpmPrice & "
 
 Putnam Contribution
 " -- & putnamContribution

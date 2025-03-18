@@ -7,7 +7,7 @@ Intended for use in an Automator service. Takes a selection of compiled AppleScr
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")
 
 on run {input, parameters}

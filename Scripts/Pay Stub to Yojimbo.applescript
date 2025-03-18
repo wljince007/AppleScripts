@@ -8,7 +8,7 @@ Hazel-triggered, saves a pay stub PDF from Dropbox into Yojimbo, with appropriat
 
 *)
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property FilenamesLib : LibLoader's loadScript("Libraries:Filenames.applescript")
 property GrowlLib : LibLoader's loadScript("Libraries:Growl.applescript")
 property StringsLib : LibLoader's loadScript("Libraries:Strings.applescript")

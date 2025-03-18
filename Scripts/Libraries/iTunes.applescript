@@ -4,7 +4,7 @@ v1.0
 Dov Frankel, 2013
 
 
-property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:Library Loader.scpt")
+property LibLoader : load script file ((path to scripts folder from user domain as text) & "Libraries:LibraryLoader.scpt")
 property iTunesLib : LibLoader's loadScript("Libraries:iTunes.applescript")
 *)
 
@@ -57,7 +57,7 @@ on SyncAppleTv(AppleTvName)
 	set AppleTvName to AppleTvName as text
 	
 	if not (my SelectSource(AppleTvName)) then
-		log ("ðtv '" & AppleTvName & "' not found")
+		log ("ï¿½tv '" & AppleTvName & "' not found")
 		return false
 	end if
 	
@@ -65,15 +65,15 @@ on SyncAppleTv(AppleTvName)
 	
 	tell application "System Events"
 		tell process "iTunes"
-			set syncMenuItem to menu item ("Sync Ò" & AppleTvName & "Ó") of menu 1 of menu bar item "File" of menu bar 1
+			set syncMenuItem to menu item ("Sync ï¿½" & AppleTvName & "ï¿½") of menu 1 of menu bar item "File" of menu bar 1
 			
 			if syncMenuItem's enabled is true then
-				log ("Syncing ðtv: " & AppleTvName)
+				log ("Syncing ï¿½tv: " & AppleTvName)
 				click syncMenuItem
 				delay 5
 				return true
 			else
-				log ("Not syncing ðtv: " & AppleTvName & " (already syncing)")
+				log ("Not syncing ï¿½tv: " & AppleTvName & " (already syncing)")
 				return false
 			end if
 		end tell
